@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.hs</groupId>
+	<artifactId>spring-tiny-app</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+
+	<name>spring-tiny-app</name>
+	<url>http://maven.apache.org</url>
+
+	<description>Tiny Spring Micro Service</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.1.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<javax.inject.version>1</javax.inject.version>
+		<logstash-logback-encoder.version>4.6</logstash-logback-encoder.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-indexer</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>${javax.inject.version}</version>
+		</dependency>
+
+		<!-- DATASOURCE -->
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- LOGSTASH -->
+
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>${logstash-logback-encoder.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-access</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- TEST -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- SWAGGER -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>tiny-app</finalName>
+
+		<plugins>
+			<!-- Package the executable jar and configure the main class -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>org.hs.TinyApp</mainClass>
+				</configuration>
+			</plugin>
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
+				<configuration> <nonFilteredFileExtensions> <nonFilteredFileExtension></nonFilteredFileExtension> 
+				</nonFilteredFileExtensions> </configuration> </plugin> -->
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> 
+				<executions> <execution> <phase>prepare-package</phase> <goals> <goal>unpack-dependencies</goal> 
+				</goals> <configuration> <includeArtifactIds>newrelic-agent</includeArtifactIds> 
+				<outputDirectory>${project.build.outputDirectory}</outputDirectory> </configuration> 
+				</execution> </executions> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-jar-plugin</artifactId> <configuration> <archive> <manifestEntries> 
+				<Premain-Class>com.newrelic.bootstrap.BootstrapAgent</Premain-Class> <Can-Redefine-Classes>true</Can-Redefine-Classes> 
+				<Can-Retransform-Classes>true</Can-Retransform-Classes> </manifestEntries> 
+				</archive> </configuration> </plugin> -->
+
+		</plugins>
+
+		<!-- <resources> <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
+			<includes> <include>**/bank/*.png</include> <include>**/logo.png</include> 
+			<include>**/*.xml</include> <include>**/*.properties</include> <include>**/*.vm</include> 
+			<include>**/*.mmdb</include> </includes> </resource> </resources> -->
+	</build>
+</project>
