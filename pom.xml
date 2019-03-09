@@ -45,12 +45,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-indexer</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>${javax.inject.version}</version>
@@ -126,25 +120,7 @@
 				</configuration>
 			</plugin>
 
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
-				<configuration> <nonFilteredFileExtensions> <nonFilteredFileExtension></nonFilteredFileExtension> 
-				</nonFilteredFileExtensions> </configuration> </plugin> -->
-
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> 
-				<executions> <execution> <phase>prepare-package</phase> <goals> <goal>unpack-dependencies</goal> 
-				</goals> <configuration> <includeArtifactIds>newrelic-agent</includeArtifactIds> 
-				<outputDirectory>${project.build.outputDirectory}</outputDirectory> </configuration> 
-				</execution> </executions> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
-				<artifactId>maven-jar-plugin</artifactId> <configuration> <archive> <manifestEntries> 
-				<Premain-Class>com.newrelic.bootstrap.BootstrapAgent</Premain-Class> <Can-Redefine-Classes>true</Can-Redefine-Classes> 
-				<Can-Retransform-Classes>true</Can-Retransform-Classes> </manifestEntries> 
-				</archive> </configuration> </plugin> -->
-
 		</plugins>
 
-		<!-- <resources> <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
-			<includes> <include>**/bank/*.png</include> <include>**/logo.png</include> 
-			<include>**/*.xml</include> <include>**/*.properties</include> <include>**/*.vm</include> 
-			<include>**/*.mmdb</include> </includes> </resource> </resources> -->
 	</build>
 </project>

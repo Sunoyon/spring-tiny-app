@@ -1,0 +1,11 @@
+1. DDL generate script
+	1.1 Support versioning
+	1.2 Support continuous feature development and a final script containing the latest complete ddl
+	1.3 Support both mysql and postgresql
+2. Add Log appender and enable proper logging
+3. Transfer log to logstash
+4. Support HTTP status code for different scenario (e.g, Bad Request, Not Found etc)
+5. Support Async Request
+6. Support new relic
+7. Support Swagger Documentation
+8. Run Script 
