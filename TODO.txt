@@ -9,3 +9,23 @@
 6. Support new relic
 7. Support Swagger Documentation
 8. Run Script 
+9. Exception Handler with HTTP Status Code
+
+# ---------------------------------------------------- CI/CD ---------------------------------------------------- 
+1. Docker with spring 2.0 + postgres with compose docker-compose up
+
+- idea 
+- pom -- boot 
+
+- main> src> 
+
+- dao --> postgres
+     --> dummy data
+
+- rest er endpoint
+- graphql controller
+
+
+- CI/CD
+
+Test cases
