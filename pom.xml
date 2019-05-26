@@ -59,7 +59,7 @@
 
 		<!-- LOGSTASH -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
 			<version>${logstash-logback-encoder.version}</version>
@@ -77,7 +77,7 @@
 					<artifactId>logback-access</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 
 		<!-- TEST -->
 
@@ -105,6 +105,13 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+		
+		<!-- OTHERS -->
+		<!-- <dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.0</version>
+		</dependency> -->
 	</dependencies>
 
 	<build>
