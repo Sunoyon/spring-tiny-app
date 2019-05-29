@@ -1,15 +1,15 @@
-1. DDL generate script
+1. DDL generate script [Won't do]
 	1.1 Support versioning
 	1.2 Support continuous feature development and a final script containing the latest complete ddl
 	1.3 Support both mysql and postgresql
-2. Add Log appender and enable proper logging
+2. Add Log appender and enable proper logging [Done]
 3. Transfer log to logstash
-4. Support HTTP status code for different scenario (e.g, Bad Request, Not Found etc)
+4. Support HTTP status code for different scenario (e.g, Bad Request, Not Found etc) [Done]
 5. Support Async Request
 6. Support new relic
-7. Support Swagger Documentation
+7. Support Swagger Documentation [Done]
 8. Run Script 
-9. Exception Handler with HTTP Status Code
+9. Exception Handler with HTTP Status Code [Done]
 
 # ---------------------------------------------------- CI/CD ---------------------------------------------------- 
 1. Docker with spring 2.0 + postgres with compose docker-compose up

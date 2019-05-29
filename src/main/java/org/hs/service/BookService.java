@@ -2,6 +2,8 @@ package org.hs.service;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.hs.model.Book;
 import org.hs.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,24 +13,27 @@ import org.springframework.stereotype.Service;
 public class BookService {
 
 	private BookRepository bookRepo;
-	
+
 	@Autowired
 	public BookService(BookRepository bookRepo) {
 		this.bookRepo = bookRepo;
 	}
-	
+
 	public Book findBookByAuthorId(Integer authorId) {
 		return bookRepo.findByAuthorId(authorId);
 	}
-	
+
 	public Book findBookById(Integer id) {
-		return bookRepo.findById(id).get();
+		Optional<Book> book = bookRepo.findById(id);
+		if (book.isPresent())
+			return book.get();
+		throw new EntityNotFoundException(String.format("Book was not found for parameters {id=%s}", id));
 	}
-	
+
 	public Book save(Book book) {
 		return bookRepo.save(book);
 	}
-	
+
 	public Book updateBook(Book book, Integer bookId) {
 		Optional<Book> bookFromId = bookRepo.findById(bookId);
 		if (bookFromId.isPresent()) {
